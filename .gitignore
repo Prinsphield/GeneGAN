@@ -6,3 +6,4 @@ train_log
 *.jpg
 *.out
 dataset
+!images/
