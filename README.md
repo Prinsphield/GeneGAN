@@ -52,26 +52,30 @@ Bangs
 </div>
 <br/>
 
-<div style="text-align: center">
+<div align="center">
 <img align="center" src="images/smiling.jpg" alt="Smiling">
-<center>Smiling</center>
+</div>
+<div align="center">
+Smiling
 </div>
 <br/>
 
-<div style="text-align: center">
+<div align="center">
 <img align="center" src="images/glasses.jpg" alt="Eyeglasses">
-<center>Eyeglasses</center>
+</div>
+<div align="center">
+Eyeglasses
 </div>
 <br/>
+
 
 
 ##### 2. Generalization to Unseen Images 
 
 We can use GeneGAN trained on celebA dataset to swap attributes of images in the Wider Face dataset.
 
-<div style="text-align: center">
+<div align="center">
 <img align="center" src="images/unseen.jpg" alt="unseen">
-<center>Bangs</center>
 </div>
 <br/>
 
@@ -80,9 +84,8 @@ We can use GeneGAN trained on celebA dataset to swap attributes of images in the
 GeneGAN can disentangle certain attribute from a large image space. The attributes subspace is almost linear 
 so that we can do interpolation in this subspace.
 
-<div style="text-align: center">
+<div align="center">
 <img align="center" src="images/interpolation.jpg" alt="Eyeglasses">
-<center>Bangs</center>
 </div>
 <br/>
 
