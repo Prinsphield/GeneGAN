@@ -46,7 +46,9 @@ You can easily replace the object for images in each row with those of the colum
 
 <div align="center">
 <img align="center" src="images/hair.jpg" alt="Bangs">
-<center>Bangs</center>
+</div>
+<div align="center">
+Bangs 
 </div>
 <br/>
 
