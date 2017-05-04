@@ -40,7 +40,7 @@ attribute names in the `list_attr_celeba.txt` file.
 ### Results
 
 
-##### 1. Swapping of Attributes 
+#### 1. Swapping of Attributes 
 
 You can easily replace the object for images in each row with those of the column heads. 
 
@@ -70,7 +70,7 @@ Eyeglasses
 
 
 
-##### 2. Generalization to Unseen Images 
+#### 2. Generalization to Unseen Images 
 
 We can use GeneGAN trained on celebA dataset to swap attributes of images in the Wider Face dataset.
 
@@ -79,7 +79,7 @@ We can use GeneGAN trained on celebA dataset to swap attributes of images in the
 </div>
 <br/>
 
-##### 3. Interpolation in Attribute Subspace
+#### 3. Interpolation in Attribute Subspace
 
 GeneGAN can disentangle certain attribute from a large image space. The attributes subspace is almost linear 
 so that we can do interpolation in this subspace.
