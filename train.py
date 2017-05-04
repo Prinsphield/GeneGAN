@@ -8,6 +8,7 @@ from model import Model
 from dataset import config, Dataset
 import numpy as np
 from scipy import misc
+import argparse
 
 
 def run(config, dataset, model, gpu):
@@ -110,9 +111,24 @@ def run(config, dataset, model, gpu):
     coord.join(threads)
 
 def main():
-    celebA = Dataset('Bangs')
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '-a', '--attribute', 
+        default='Smiling',
+        type=str,
+        help='Specify attribute name for training. (default: %(default)s)\nAll the available attributes can be found in list_attr_celeba.txt'
+    )
+    parser.add_argument(
+        '-g', '--gpu', 
+        default='0',
+        type=str,
+        help='Specify GPU id. (default: %(default)s)\nUse comma to seperate several ids, for example: 0,1'
+    )
+    args = parser.parse_args()
+
+    celebA = Dataset(args.attribute)
     GeneGAN = Model(is_train=True)
-    run(config, celebA, GeneGAN, gpu='0')
+    run(config, celebA, GeneGAN, gpu=args.gpu)
 
 
 if __name__ == "__main__":

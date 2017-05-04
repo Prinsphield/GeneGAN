@@ -4,7 +4,6 @@
 
 import numpy as np 
 import tensorflow as tf 
-# from tensorflow.python.framework import ops, dtypes
 import glob, os, time
 from scipy import misc
 
@@ -170,15 +169,10 @@ if __name__ == '__main__':
     t2 = time.time()
     print(t2-t1, (t2-t1)/10)
 
-    # img = sess.run(batch1)
-    # print(type(img), img[0].shape)
-    # misc.imsave('img.jpg', img[0])
 
     coord.request_stop()
     coord.join(threads)
     
-    # cv2.imwrite('img1_{}.jpg'.format(i), batch1[0])
-    # cv2.imwrite('img2_{}.jpg'.format(i), batch2[0])
 
 
 
