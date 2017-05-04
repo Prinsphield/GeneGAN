@@ -10,8 +10,7 @@ our private deep learning framework. For convenience, we reproduce the results u
 
 
 <div style="text-align: center">
-<img align="center" src="https://lh5.googleusercontent.com/kaT-oG3rx0MCfmVhr31LgRL5pGuF6ntMB-TNAYmtWFFxUx-h2EAWe71sXNmnO_fhQyMdF7qPbjxyOCk=w1220-h927" width="450" alt="Hair">
-<center>Hair</center>
+<img align="center" src="images/cross.jpg" width="450" alt="cross">
 </div>   
 <br/>
 
@@ -47,19 +46,19 @@ attribute names in the `list_attr_celeba.txt` file.
 You can easily replace the object for images in each row with those of the column heads. 
 
 <div style="text-align: center">
-<img align="center" src="https://lh4.googleusercontent.com/wQ5LI891sz6R2n7TyVEoOL8_YZzdT6hm-4NPtgT5ffvel-T78ymq9xfgfoi1YwXfIzTjYiV8bEzgF9k=w1220-h927" alt="Hair">
+<img align="center" src="images/hair.jpg" alt="Bangs">
 <center>Bangs</center>
 </div>   
 <br/>
 
 <div style="text-align: center">
-<img align="center" src="https://lh3.googleusercontent.com/eslrBQtMf94HFHRUXS5eGQJFXL9HEnWdn5-ZPTUS5e9RScz8CC9sqJVqOgYMirJOParkm8k07RpOivQ=w1220-h927" alt="Smiling">
+<img align="center" src="images/smiling.jpg" alt="Smiling">
 <center>Smiling</center>
 </div>
 <br/>
 
 <div style="text-align: center">
-<img align="center" src="https://lh3.googleusercontent.com/NexLizC6_UMdvyHd_3VQBNs9V-DtJQPKptCKqNYSU_1TLUDOBebDBvY29GqDw__X2Qm5hdkSvVbdjoo=w1220-h927" alt="Eyeglasses">
+<img align="center" src="images/glasses.jpg" alt="Eyeglasses">
 <center>Eyeglasses</center>
 </div>
 <br/>
@@ -70,7 +69,7 @@ You can easily replace the object for images in each row with those of the colum
 We can use GeneGAN trained on celebA dataset to swap attributes of images in the Wider Face dataset.
 
 <div style="text-align: center">
-<img align="center" src="https://lh4.googleusercontent.com/bjG6xj5_g_CgXeJJ6EAHP_mgqrCQYXWco23Wt3AiCRbFFmlS6jEsNR_gns2PJDYvQsKEDjqKLGdcOyg=w1220-h927" alt="Eyeglasses">
+<img align="center" src="images/unseen.jpg" alt="unseen">
 <center>Bangs</center>
 </div>
 <br/>
@@ -81,7 +80,7 @@ GeneGAN can disentangle certain attribute from a large image space. The attribut
 so that we can do interpolation in this subspace.
 
 <div style="text-align: center">
-<img align="center" src="https://lh3.googleusercontent.com/gb-kYAbeMwxl7sqdnvI2U0EglDPCy5nQiWdvfGfFZn0640jFsFxtoL3yxPsFUNOabKAO3vyVuhIAFEE=w1220-h927" alt="Eyeglasses">
+<img align="center" src="images/interpolation.jpg" alt="Eyeglasses">
 <center>Bangs</center>
 </div>
 <br/>
