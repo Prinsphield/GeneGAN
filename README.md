@@ -77,6 +77,9 @@ We can use GeneGAN trained on celebA dataset to swap attributes of images in the
 <div align="center">
 <img align="center" src="images/unseen.jpg" alt="unseen">
 </div>
+<div align="center">
+Bangs 
+</div>
 <br/>
 
 #### 3. Interpolation in Attribute Subspace
@@ -86,6 +89,9 @@ so that we can do interpolation in this subspace.
 
 <div align="center">
 <img align="center" src="images/interpolation.jpg" alt="Eyeglasses">
+</div>
+<div align="center">
+Bangs 
 </div>
 <br/>
 
