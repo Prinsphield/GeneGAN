@@ -8,6 +8,7 @@ This is the official source code for the paper GeneGAN: Learning Object Transfig
 and Attribute Subspace from Unpaired Data. All the experiments are initially done in 
 our private deep learning framework. For convenience, we reproduce the results using TensorFlow.
 
+![](images/cross.jpg)
 
 <div style="text-align: center">
 <img align="center" src="images/cross.jpg" width="450" alt="cross">

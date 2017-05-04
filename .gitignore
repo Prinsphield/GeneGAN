@@ -2,8 +2,5 @@ train_log
 *DS_Store
 *.swo
 *.pyc
-*.png
-*.jpg
 *.out
 dataset
-!images/
