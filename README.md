@@ -8,10 +8,9 @@ This is the official source code for the paper GeneGAN: Learning Object Transfig
 and Attribute Subspace from Unpaired Data. All the experiments are initially done in 
 our private deep learning framework. For convenience, we reproduce the results using TensorFlow.
 
-
-<p align="justify">
+<div align="center">
 <img align="center" src="images/cross.jpg" width="450" alt="cross">
-</p>   
+</div> 
 <br/>
 
 GeneGAN is a deterministic conditional generative model that can learn to disentangle the object
@@ -45,10 +44,10 @@ attribute names in the `list_attr_celeba.txt` file.
 
 You can easily replace the object for images in each row with those of the column heads. 
 
-<div style="text-align: center">
+<div align="center">
 <img align="center" src="images/hair.jpg" alt="Bangs">
 <center>Bangs</center>
-</div>   
+</div>
 <br/>
 
 <div style="text-align: center">
