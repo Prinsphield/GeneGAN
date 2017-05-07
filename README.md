@@ -30,15 +30,14 @@ resolution of all images is 418x594.
 │       ├── list_attr_celeba.txt
 │       └── list_landmarks_celeba.txt
 ```
+1. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
 
-0. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
-
-0. Run `python train.py -a Smiling -g 0` to train a GeneGAN. You can find all available 
+2. Run `python train.py -a Smiling -g 0` to train a GeneGAN. You can find all available 
 attribute names in the `list_attr_celeba.txt` file. 
 
-0. Run `tensorboard --logdir='./' --port 6006` to examine the training process.
+3. Run `tensorboard --logdir='./' --port 6006` to examine the training process.
 
-0. Run `python test.py -h` for test help. Have fun!
+4. Run `python test.py -h` for test help. Have fun!
 
 ### Results
 
