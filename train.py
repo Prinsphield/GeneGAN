@@ -111,18 +111,18 @@ def run(config, dataset, model, gpu):
     coord.join(threads)
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='test', formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument(
         '-a', '--attribute', 
         default='Smiling',
         type=str,
-        help='Specify attribute name for training. (default: %(default)s)\nAll the available attributes can be found in list_attr_celeba.txt'
+        help='Specify attribute name for training. \ndefault: %(default)s. \nAll attributes can be found in list_attr_celeba.txt'
     )
     parser.add_argument(
         '-g', '--gpu', 
         default='0',
         type=str,
-        help='Specify GPU id. (default: %(default)s)\nUse comma to seperate several ids, for example: 0,1'
+        help='Specify GPU id. \ndefault: %(default)s. \nUse comma to seperate several ids, for example: 0,1'
     )
     args = parser.parse_args()
 

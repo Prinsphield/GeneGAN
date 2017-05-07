@@ -3,4 +3,6 @@ train_log
 *.swo
 *.pyc
 *.out
-dataset
+*.jpg
+*.png
+datasets
