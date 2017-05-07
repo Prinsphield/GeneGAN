@@ -19,9 +19,10 @@ It allows fine-grained control of generated images on a certain attribute in a c
 
 ### Training GeneGAN on celebA dataset
 
-1.  Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into 
+0. Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into 
 `dataset` directory. Please ensure that you have the following directory tree structure, and the 
 resolution of all images is 418x594.
+
 ```
 ├── datasets
 │   └── celebA
@@ -30,12 +31,14 @@ resolution of all images is 418x594.
 │       └── list_landmarks_celeba.txt
 ```
 
-1.  Run `preprocess.py`. It will take several miniutes to preprocess all face images. 
+0. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
 
-1.  Run `python train.py -a Smiling -g 0` to train a GeneGAN. You can find all available 
+0. Run `python train.py -a Smiling -g 0` to train a GeneGAN. You can find all available 
 attribute names in the `list_attr_celeba.txt` file. 
 
-1.  Run `tensorboard --logdir='./' --port 6006` to examine the training process.
+0. Run `tensorboard --logdir='./' --port 6006` to examine the training process.
+
+0. Run `python test.py -h` for test help. Have fun!
 
 ### Results
 
