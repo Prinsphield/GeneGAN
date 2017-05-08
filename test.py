@@ -37,7 +37,7 @@ def swap_attribute(src_img, att_img, model_dir, model, gpu):
         if ckpt and ckpt.model_checkpoint_path:
             saver.restore(sess, ckpt.model_checkpoint_path)
 
-        out1, out2 = sess.run([model.Ae, model.Bx], feed_dict={model.Ax: att_img, model.Be: src_img})
+        out2, out1 = sess.run([model.Ae, model.Bx], feed_dict={model.Ax: att_img, model.Be: src_img})
         misc.imsave('out1.jpg', out1[0])
         misc.imsave('out2.jpg', out2[0])
 
@@ -136,8 +136,7 @@ def interpolation_matrix(src_img, att_imgs, size, model_dir, model, gpu):
 
         m, n = size
         h, w = model.height, model.width
-        out = np.zeros((h * m, w * n, model.channel))
-
+        
         rows = [[1 - i/float(m-1), i/float(m-1)] for i in range(m)]
         cols = [[1 - i/float(n-1), i/float(n-1)] for i in range(n)]
         four_tuple = []
@@ -146,41 +145,56 @@ def interpolation_matrix(src_img, att_imgs, size, model_dir, model, gpu):
                 four_tuple.append([row[0]*col[0], row[0]*col[1], row[1]*col[0], row[1]*col[1]])
 
         attributes = [sess.run(model.x, feed_dict={model.Ax: att_imgs[i:i+1]}) for i in range(4)]
-        print(four_tuple)
+        B = sess.run(model.B, feed_dict={model.Be: src_img})
 
         cnt = 0 
+        out = np.zeros((0, w * n, model.channel))
         for i in range(m):
+            out_row = np.zeros((h, 0, model.channel))
             for j in range(n):
                 four = four_tuple[cnt]
                 attribute = sum([four[i] * attributes[i] for i in range(4)])
                 # print(attribute.shape)
-                img = sess.run(model.joiner('G_joiner', model.B, attribute),
-                                                        feed_dict={model.Be: src_img})[0]
-                print(img.shape)
-                out[(h*i):(h*(i+1)), (w*j):(w*(j+1)), :] = img
+                img = sess.run(model.joiner('G_joiner', B, attribute))[0]
+                out_row = np.concatenate((out_row, img), axis=1)
                 cnt += 1
-        misc.imsave('four_matrix.jpg', out)
+            out = np.concatenate((out, out_row), axis=0)
+
+        first_col = np.concatenate((att_imgs[0], 255*np.ones(((m-2)*h, w, 3)), att_imgs[2]), axis=0)
+
+        last_col  = np.concatenate((att_imgs[1], 255*np.ones(((m-2)*h, w, 3)), att_imgs[3]), axis=0)
+
+        out_canvas = np.concatenate((first_col, out, last_col), axis=1)
+        misc.imsave('four_matrix.jpg', out_canvas)
 
 
 
 def main():
     parser = argparse.ArgumentParser(description='test', formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument(
-        '-s', '--source', 
+        '-m', '--mode', 
+        default='swap',
+        type=str,
+        help='Specify mode. \n  1. swap (default)\n  2. interpolation\n 3. matrix'
+    )
+    parser.add_argument(
+        '-i', '--input', 
+        metavar='input image for change',
         type=str,
         help='Specify source image name.'
     )
     parser.add_argument(
         '-t', '--target', 
-        default='Smiling',
+        metavar='target image with attributes',
         type=str,
         help='Specify target image name.'
     )
     parser.add_argument(
-        '-m', '--mode', 
-        default='swap',
+        '--targets', 
+        nargs=4,
+        metavar='four target images with attributes',
         type=str,
-        help='Specify mode. \n  1. swap (default)\n  2. interpolation'
+        help='Specify target image name.'
     )
     parser.add_argument(
         '--model_dir', 
@@ -195,28 +209,43 @@ def main():
         help='Specify number of interpolations.'
     )
     parser.add_argument(
+        '-s', '--size', 
+        nargs=2,
+        default=[3,3],
+        type=int,
+        help='Specify number of interpolations.'
+    )
+    parser.add_argument(
         '-g', '--gpu', 
         default='0',
         type=str,
         help='Specify GPU id. \ndefault: %(default)s. \nUse comma to seperate several ids, for example: 0,1'
     )
     args = parser.parse_args()
-
+    # print(type(args.size[0]))
+    # print(args.size)
+    # print(args.targets)
+    # print(args.mode)
 
     GeneGAN = Model(nhwc=[1,64,64,3])
-
-    src_img = np.expand_dims(misc.imresize(misc.imread(args.source), (GeneGAN.height, GeneGAN.width)), axis=0)
-    att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)
     if args.mode == 'swap':
+        src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
+        att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)
         swap_attribute(src_img, att_img, args.model_dir, GeneGAN, args.gpu)
     elif args.mode == 'interpolation':
-        interpolation(src_img, att_img, args.num,  args.model_dir, GeneGAN, args.gpu)        
+        src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
+        att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)
+        interpolation(src_img, att_img, args.num,  args.model_dir, GeneGAN, args.gpu)   
+    elif args.mode == 'matrix':
+        src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
+        att_imgs = np.array([misc.imresize(misc.imread(img), (GeneGAN.height, GeneGAN.width)) for img in args.targets])
+        interpolation_matrix(src_img, att_imgs, args.size, args.model_dir, GeneGAN, args.gpu) 
     else:
         raise NotImplementationError()
-
-    # celebA = Dataset('Bangs')
-    # print(celebA.idxs1[990:1010])
     
+
+
+    # # interpolation_matrix test
     # src_img_name = 'datasets/celebA/align_5p/182929.jpg'
     # model_dir = 'train_log/model/'
     # gpu = '0'
@@ -224,14 +253,10 @@ def main():
 
     # att_img_names = ['datasets/celebA/align_5p/006851.jpg', 'datasets/celebA/align_5p/006871.jpg', 'datasets/celebA/align_5p/006935.jpg', 'datasets/celebA/align_5p/006947.jpg']
 
-    # src_img = misc.imread(src_img_name)
-    # # att_imgs = np.array([misc.imresize(misc.imread(att_img_name), (GeneGAN.height, GeneGAN.width)) for att_img_name in att_img_names])
-    # att_img = misc.imread(att_img_names[1])
-    # src_img = np.expand_dims(misc.imresize(src_img, (GeneGAN.height, GeneGAN.width)), axis=0)
-    # att_img = np.expand_dims(misc.imresize(att_img, (GeneGAN.height, GeneGAN.width)), axis=0)
-    # # print att_imgs.shape
+    # src_img = np.expand_dims(misc.imresize(misc.imread(src_img_name), (GeneGAN.height, GeneGAN.width)), axis=0)
+    # att_imgs = np.array([misc.imresize(misc.imread(att_img_name), (GeneGAN.height, GeneGAN.width)) for att_img_name in att_img_names])
+    # print(src_img.shape, att_imgs.shape)
 
-    # interpolation(src_img, att_img, 5, model_dir, GeneGAN, gpu=gpu)
     # interpolation_matrix(src_img, att_imgs, (5,5), model_dir, GeneGAN, gpu=gpu)
 
 if __name__ == "__main__":
