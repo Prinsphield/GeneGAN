@@ -45,9 +45,13 @@ attribute names in the `list_attr_celeba.txt` file.
 		`python test.py -m swap -i input_image_name -t target_image_name --model_dir train_log/model/ -g 0` 
 
 	* Linear interpolation between input image and target image. 
+
 		`python test.py -m interpolation -i input_image_name -t target_image_name -n 5 --model_dir train_log/model/ -g 0` 
+
 	* Matrix interpolation between input image and four target images.
+
 		`python test.py -m matrix -i input_image_name -targets target1 target2 target3 target4 -s 5 5 --model_dir train_log/model/ -g 0` 
+
 
 ### Results
 
