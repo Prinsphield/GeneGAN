@@ -227,7 +227,7 @@ def main():
     # print(args.targets)
     # print(args.mode)
 
-    GeneGAN = Model(nhwc=[1,64,64,3])
+    GeneGAN = Model(is_train=False, nhwc=[1,64,64,3])
     if args.mode == 'swap':
         src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
         att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)

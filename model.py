@@ -227,9 +227,10 @@ class Model(object):
 
 
         # G, D optimizer
-        self.g_opt = tf.train.RMSPropOptimizer(self.g_lr, decay=0.8).minimize(self.loss_G, var_list=self.g_var_list)
-        self.d_opt = tf.train.RMSPropOptimizer(self.d_lr, decay=0.8).minimize(self.loss_D, var_list=self.d_var_list)
-        
+        with tf.control_dependencies(tf.get_collection(tf.GraphKeys.UPDATE_OPS)): 
+            self.g_opt = tf.train.RMSPropOptimizer(self.g_lr, decay=0.8).minimize(self.loss_G, var_list=self.g_var_list)
+            self.d_opt = tf.train.RMSPropOptimizer(self.d_lr, decay=0.8).minimize(self.loss_D, var_list=self.d_var_list)
+
         # clip weights in D
         with tf.name_scope('clip_d'):
             self.clip_d = [p.assign(tf.clip_by_value(p, -0.01, 0.01)) for p in self.d_var_list]
