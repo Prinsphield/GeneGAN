@@ -20,7 +20,7 @@ It allows fine-grained control of generated images on a certain attribute in a c
 ### Training GeneGAN on celebA dataset
 
 0. Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into 
-`dataset` directory. Please ensure that you have the following directory tree structure, and the 
+`datasets` directory. Please ensure that you have the following directory tree structure, and the 
 resolution of all images is 418x594.
 
 ```
@@ -50,7 +50,7 @@ attribute names in the `list_attr_celeba.txt` file.
 
 	* Matrix interpolation between input image and four target images.
 
-		`python test.py -m matrix -i input_image_name -targets target1 target2 target3 target4 -s 5 5 --model_dir train_log/model/ -g 0` 
+		`python test.py -m matrix -i input_image_name --targets target1 target2 target3 target4 -s 5 5 --model_dir train_log/model/ -g 0` 
 
 
 ### Results
