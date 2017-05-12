@@ -175,11 +175,11 @@ def main():
         '-m', '--mode', 
         default='swap',
         type=str,
-        help='Specify mode. \n  1. swap (default)\n  2. interpolation\n 3. matrix'
+        choices=['swap', 'interpolation', 'matrix'],
+        help='Specify mode.'
     )
     parser.add_argument(
         '-i', '--input', 
-        metavar='input image for change',
         type=str,
         help='Specify source image name.'
     )
@@ -192,7 +192,6 @@ def main():
     parser.add_argument(
         '--targets', 
         nargs=4,
-        metavar='four target images with attributes',
         type=str,
         help='Specify target image name.'
     )
@@ -222,10 +221,6 @@ def main():
         help='Specify GPU id. \ndefault: %(default)s. \nUse comma to seperate several ids, for example: 0,1'
     )
     args = parser.parse_args()
-    # print(type(args.size[0]))
-    # print(args.size)
-    # print(args.targets)
-    # print(args.mode)
 
     GeneGAN = Model(is_train=False, nhwc=[1,64,64,3])
     if args.mode == 'swap':
@@ -235,6 +230,8 @@ def main():
     elif args.mode == 'interpolation':
         src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
         att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)
+        print(src_img.shape)
+        print(att_img.shape)
         interpolation(src_img, att_img, args.num,  args.model_dir, GeneGAN, args.gpu)   
     elif args.mode == 'matrix':
         src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
@@ -242,22 +239,6 @@ def main():
         interpolation_matrix(src_img, att_imgs, args.size, args.model_dir, GeneGAN, args.gpu) 
     else:
         raise NotImplementationError()
-    
-
-
-    # # interpolation_matrix test
-    # src_img_name = 'datasets/celebA/align_5p/182929.jpg'
-    # model_dir = 'train_log/model/'
-    # gpu = '0'
-    # GeneGAN = Model(nhwc=[1,64,64,3])
-
-    # att_img_names = ['datasets/celebA/align_5p/006851.jpg', 'datasets/celebA/align_5p/006871.jpg', 'datasets/celebA/align_5p/006935.jpg', 'datasets/celebA/align_5p/006947.jpg']
-
-    # src_img = np.expand_dims(misc.imresize(misc.imread(src_img_name), (GeneGAN.height, GeneGAN.width)), axis=0)
-    # att_imgs = np.array([misc.imresize(misc.imread(att_img_name), (GeneGAN.height, GeneGAN.width)) for att_img_name in att_img_names])
-    # print(src_img.shape, att_imgs.shape)
-
-    # interpolation_matrix(src_img, att_imgs, (5,5), model_dir, GeneGAN, gpu=gpu)
 
 if __name__ == "__main__":
     main()

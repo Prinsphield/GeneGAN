@@ -168,6 +168,9 @@ class Model(object):
             X = self.make_deconv('deconv3', X, filter_shape=[4,4,self.channel,256], 
                                     out_shape=[self.batch_size, self.height, self.width, self.channel], 
                                     strides=[1,2,2,1])
+            b = tf.get_variable('b', shape=[1,1,1,self.channel], initializer=tf.zeros_initializer())
+            X = X + b
+
             X = (tf.tanh(X) + 1) * 255.0 / 2
             return X 
 

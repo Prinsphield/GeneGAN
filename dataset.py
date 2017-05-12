@@ -48,10 +48,10 @@ class Config:
             os.makedirs(sample_img_dir)
         return sample_img_dir
 
-    def g_lr(self, init_lr=0.00005, decay_rate=0.8, decay_step=10000, epoch=0):
+    def g_lr(self, init_lr=0.00005, decay_rate=1, decay_step=10000, epoch=0):
         return init_lr * decay_rate ** (epoch / np.float(decay_step))
 
-    def d_lr(self, init_lr=0.00005, decay_rate=0.8, decay_step=10000, epoch=0):
+    def d_lr(self, init_lr=0.00005, decay_rate=1, decay_step=10000, epoch=0):
         return init_lr * decay_rate ** (epoch / np.float(decay_step))
 
     nhwc = [64,64,64,3]
