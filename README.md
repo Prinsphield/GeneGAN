@@ -33,32 +33,21 @@ resolution of all images is 418x594.
 
 1. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
 
-2. Run `python train.py -a Smiling -g 0` to train a GeneGAN. You can find all available 
-attribute names in the `list_attr_celeba.txt` file. 
+2. Run `python train.py -a Bangs -g 0` to train GeneGAN on the attribute `Bangs`. 
+You can train GeneGAN on other attributes as well. All available attribute names are
+listed in the `list_attr_celeba.txt` file. 
 
-3. Run `tensorboard --logdir='./' --port 6006` to examine the training process.
-
-4. We provide three kinds of mode for test. Have fun!
-
-	* Swap two images attributes. 
-
-		`python test.py -m swap -i input_image_name -t target_image_name --model_dir train_log/model/ -g 0` 
-
-	* Linear interpolation between input image and target image. 
-
-		`python test.py -m interpolation -i input_image_name -t target_image_name -n 5 --model_dir train_log/model/ -g 0` 
-
-	* Matrix interpolation between input image and four target images.
-
-		`python test.py -m matrix -i input_image_name --targets target1 target2 target3 target4 -s 5 5 --model_dir train_log/model/ -g 0` 
+3. Run `tensorboard --logdir='./' --port 6006` to watch your training process.
 
 
-### Results
+### Testing
 
+We provide three kinds of mode for test. Run `python test.py -h` for detailed help.
+Have fun!
 
-#### 1. Swapping of Attributes 
+#### 1 Swapping of Attributes 
 
-You can easily replace the Bangs of one person by running 
+You can easily add the bangs of one person to another person without bangs by running 
 
     python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg
 
@@ -77,8 +66,8 @@ Swap Attributes
 
 #### 2. Linear Interpolation of Image Attributes
 
-We can control how much the target attribute is interpolated on the source images
-by linear interpolation. Run
+Besides, we can control to which extent the bangs style you add to your images
+through linear interpolation of image attribute. Run the following code.
 
     python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5
 
