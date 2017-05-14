@@ -43,7 +43,8 @@ listed in the `list_attr_celeba.txt` file.
 ### Testing
 
 We provide three kinds of mode for test. Run `python test.py -h` for detailed help.
-Have fun!
+The following example is running on our GeneGAN model trained on the attribute
+`Bangs`. Have fun!
 
 #### 1 Swapping of Attributes 
 
@@ -59,14 +60,14 @@ You can easily add the bangs of one person to another person without bangs by ru
 <img align="center" src="images/swap_out2.jpg" alt="out2">
 </div>
 <div align="center">
-Swap Attributes
+Swap Attribute
 </div>
 <br/>
 
 
 #### 2. Linear Interpolation of Image Attributes
 
-Besides, we can control to which extent the bangs style you add to your images
+Besides, we can control to which extent the bangs style is added to your input image
 through linear interpolation of image attribute. Run the following code.
 
     python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5
@@ -82,7 +83,7 @@ Linear Interpolation
 
 #### 3. Matrix Interpolation in Attribute Subspace
 
-We can do something cooler. Given four images with Bangs attributes at hand,
+We can do something cooler. Given four images with bangs attributes at hand,
 we can observe the gradual change process of our input images with a mixing of
 difference bangs style.
 
