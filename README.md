@@ -58,56 +58,59 @@ attribute names in the `list_attr_celeba.txt` file.
 
 #### 1. Swapping of Attributes 
 
-You can easily replace the object for images in each row with those of the column heads. 
+You can easily replace the Bangs of one person by running 
+
+    `python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg`
 
 <div align="center">
-<img align="center" src="images/hair.jpg" alt="Bangs">
+<img align="center" src="images/182929_resize.jpg" alt="input">
+<img align="center" src="images/035460_resize.jpg" alt="target">
 </div>
 <div align="center">
-Bangs 
+source images
 </div>
 <br/>
 
 <div align="center">
-<img align="center" src="images/smiling.jpg" alt="Smiling">
+<img align="center" src="images/out1.jpg" alt="out1">
+<img align="center" src="images/out2.jpg" alt="out2">
 </div>
 <div align="center">
-Smiling
-</div>
-<br/>
-
-<div align="center">
-<img align="center" src="images/glasses.jpg" alt="Eyeglasses">
-</div>
-<div align="center">
-Eyeglasses
+output images
 </div>
 <br/>
 
 
 
-#### 2. Generalization to Unseen Images 
+#### 2. Linear Interpolation of Image Attributes
 
-We can use GeneGAN trained on celebA dataset to swap attributes of images in the Wider Face dataset.
+We can control how much the target attribute is interpolated on the source images
+by linear interpolation. Run
+
+    `python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5`
 
 <div align="center">
-<img align="center" src="images/unseen.jpg" alt="unseen">
+<img align="center" src="images/interpolation.jpg" alt="interpolation">
 </div>
 <div align="center">
-Bangs 
+Linear Interpolation
 </div>
 <br/>
 
-#### 3. Interpolation in Attribute Subspace
+#### 3. Matrix Interpolation in Attribute Subspace
 
-GeneGAN can disentangle certain attribute from a large image space. The attributes subspace is almost linear 
-so that we can do interpolation in this subspace.
+We can do something cooler. We have four images with Bangs attributes at hand,
+running the following code 
+
+    `python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5`
+
+will gives the matrix interpolation results in attribute subspace.
 
 <div align="center">
-<img align="center" src="images/interpolation.jpg" alt="Eyeglasses">
+<img align="center" src="images/four_matrix.jpg" alt="matrix">
 </div>
 <div align="center">
-Bangs 
+Matrix Interpolation
 </div>
 <br/>
 
