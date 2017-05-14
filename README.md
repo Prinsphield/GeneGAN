@@ -60,26 +60,18 @@ attribute names in the `list_attr_celeba.txt` file.
 
 You can easily replace the Bangs of one person by running 
 
-    `python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg`
+    python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg
 
 <div align="center">
 <img align="center" src="images/182929_resize.jpg" alt="input">
 <img align="center" src="images/035460_resize.jpg" alt="target">
+<img align="center" src="images/swap_out1.jpg" alt="out1">
+<img align="center" src="images/swap_out2.jpg" alt="out2">
 </div>
 <div align="center">
-source images
+Swap Attributes
 </div>
 <br/>
-
-<div align="center">
-<img align="center" src="images/out1.jpg" alt="out1">
-<img align="center" src="images/out2.jpg" alt="out2">
-</div>
-<div align="center">
-output images
-</div>
-<br/>
-
 
 
 #### 2. Linear Interpolation of Image Attributes
@@ -87,7 +79,7 @@ output images
 We can control how much the target attribute is interpolated on the source images
 by linear interpolation. Run
 
-    `python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5`
+    python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5
 
 <div align="center">
 <img align="center" src="images/interpolation.jpg" alt="interpolation">
@@ -102,7 +94,7 @@ Linear Interpolation
 We can do something cooler. We have four images with Bangs attributes at hand,
 running the following code 
 
-    `python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5`
+    python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5
 
 will gives the matrix interpolation results in attribute subspace.
 
