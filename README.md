@@ -32,6 +32,7 @@ resolution of all images is 418x594.
 ```
 
 1. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
+A new directory `datasets/celebA/align_5p` will be created.
 
 2. Run `python train.py -a Bangs -g 0` to train GeneGAN on the attribute `Bangs`. 
 You can train GeneGAN on other attributes as well. All available attribute names are
