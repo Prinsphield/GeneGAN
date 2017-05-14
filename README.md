@@ -91,8 +91,9 @@ Linear Interpolation
 
 #### 3. Matrix Interpolation in Attribute Subspace
 
-We can do something cooler. We have four images with Bangs attributes at hand,
-running the following code 
+We can do something cooler. Given four images with Bangs attributes at hand,
+we can observe the gradual change process of our input images with a mixing of
+difference bangs style.
 
     python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5
 
