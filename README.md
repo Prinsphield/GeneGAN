@@ -64,7 +64,7 @@ You can easily replace the Bangs of one person by running
 
 <div align="center">
 <img align="center" src="images/182929_resize.jpg" alt="input">
-<img align="center" src="images/035460_resize.jpg" alt="target" hspace="20">
+<img align="center" src="images/035460_resize.jpg" alt="target">
 
 <img align="center" src="images/swap_out1.jpg" alt="out1">
 <img align="center" src="images/swap_out2.jpg" alt="out2">
@@ -83,7 +83,7 @@ by linear interpolation. Run
     python test.py -m interpolation -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg -n 5
 
 <div align="center">
-<img align="center" src="images/interpolation.jpg" alt="interpolation" hspace='10>
+<img align="center" src="images/interpolation.jpg" alt="interpolation">
 <img align="center" src="images/035460_resize.jpg" alt="target"> 
 </div>
 <div align="center">
