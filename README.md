@@ -6,7 +6,7 @@ By Shuchang Zhou, Taihong Xiao, Yi Yang, Dieqiao Feng, Qinyao He, Weiran He
 
 This is the official source code for the paper GeneGAN: Learning Object Transfiguration 
 and Attribute Subspace from Unpaired Data. All the experiments are initially done in 
-our private deep learning framework. For convenience, we reproduce the results using TensorFlow.
+our proprietary deep learning framework. For convenience, we reproduce the results using TensorFlow.
 
 <div align="center">
 <img align="center" src="images/cross.jpg" width="450" alt="cross">
@@ -98,8 +98,6 @@ we can observe the gradual change process of our input images with a mixing of
 difference bangs style.
 
     python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5
-
-will gives the matrix interpolation results in attribute subspace.
 
 <div align="center">
 <img align="center" src="images/four_matrix.jpg" alt="matrix">
