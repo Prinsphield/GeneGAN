@@ -17,11 +17,20 @@ GeneGAN is a deterministic conditional generative model that can learn to disent
 features from other factors in feature space from weak supervised 0/1 labeling of training data.
 It allows fine-grained control of generated images on a certain attribute in a continous way.
 
+### Requirement
+
+- Python 3.5
+- TensorFlow 1.0
+- Opencv 3.2
+
+
 ### Training GeneGAN on celebA dataset
 
-0. Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into 
-`datasets` directory. Please ensure that you have the following directory tree structure, and the 
-resolution of all images is 418x594.
+0. Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into
+`datasets` directory. There are various source providers for CelebA datasets. To ensure that the
+size of downloaded images is correct, please run `identify datasets/celebA/data/000001.jpg`, the
+size should be 409 x 687 if you are using the same dataset. Besides, please ensure that you have
+the following directory tree structure.
 
 ```
 ├── datasets
