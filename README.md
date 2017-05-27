@@ -28,7 +28,7 @@ It allows fine-grained control of generated images on a certain attribute in a c
 
 0. Download [celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) dataset and unzip it into
 `datasets` directory. There are various source providers for CelebA datasets. To ensure that the
-size of downloaded images is correct, please run `identify datasets/celebA/data/000001.jpg`, the
+size of downloaded images is correct, please run `identify datasets/celebA/data/000001.jpg`. The
 size should be 409 x 687 if you are using the same dataset. Besides, please ensure that you have
 the following directory tree structure.
 
