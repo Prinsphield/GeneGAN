@@ -75,7 +75,7 @@ We provide three kinds of mode for test. Run `python test.py -h` for detailed he
 The following example is running on our GeneGAN model trained on the attribute
 `Bangs`. Have fun!
 
-#### 1 Swapping of Attributes 
+#### 1. Swapping of Attributes 
 
 You can easily add the bangs of one person to another person without bangs by running 
 
