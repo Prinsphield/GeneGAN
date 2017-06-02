@@ -18,6 +18,7 @@ If you use this code for your research, please cite our paper:
   url       = {http://arxiv.org/abs/1705.04932},
   timestamp = {http://dblp.uni-trier.de/rec/bib/journals/corr/ZhouXYFHH17},
   bibsource = {dblp computer science bibliography, http://dblp.org}
+}
 ```
 
 ### Introduction
