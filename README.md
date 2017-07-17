@@ -79,11 +79,11 @@ The following example is running on our GeneGAN model trained on the attribute
 
 You can easily add the bangs of one person to another person without bangs by running 
 
-    python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/035460.jpg
+    python test.py -m swap -i datasets/celebA/align_5p/182929.jpg -t datasets/celebA/align_5p/022344.jpg
 
 <div align="center">
 <img align="center" src="images/182929_resize.jpg" alt="input">
-<img align="center" src="images/035460_resize.jpg" alt="target">
+<img align="center" src="images/022344_resize.jpg" alt="target">
 
 <img align="center" src="images/swap_out1.jpg" alt="out1">
 <img align="center" src="images/swap_out2.jpg" alt="out2">

@@ -146,8 +146,7 @@ if __name__ == '__main__':
     os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 
     config = Config()
-    # celebA = Dataset('Smiling')
-    celebA = Dataset('Male')
+    celebA = Dataset('Bangs')
 
     batch1, batch2 = celebA.input()
 
