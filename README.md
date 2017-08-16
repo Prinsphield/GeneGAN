@@ -116,7 +116,7 @@ We can do something cooler. Given four images with bangs attributes at hand,
 we can observe the gradual change process of our input images with a mixing of
 difference bangs style.
 
-    python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg -targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5
+    python test.py -m matrix -i datasets/celebA/align_5p/182929.jpg --targets datasets/celebA/align_5p/035460.jpg datasets/celebA/align_5p/035451.jpg datasets/celebA/align_5p/035463.jpg datasets/celebA/align_5p/035474.jpg -s 5 5
 
 <div align="center">
 <img align="center" src="images/four_matrix.jpg" alt="matrix">

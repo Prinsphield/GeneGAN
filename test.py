@@ -230,8 +230,6 @@ def main():
     elif args.mode == 'interpolation':
         src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
         att_img = np.expand_dims(misc.imresize(misc.imread(args.target), (GeneGAN.height, GeneGAN.width)), axis=0)
-        print(src_img.shape)
-        print(att_img.shape)
         interpolation(src_img, att_img, args.num,  args.model_dir, GeneGAN, args.gpu)   
     elif args.mode == 'matrix':
         src_img = np.expand_dims(misc.imresize(misc.imread(args.input), (GeneGAN.height, GeneGAN.width)), axis=0)
