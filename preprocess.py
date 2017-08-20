@@ -154,5 +154,5 @@ def main(data_dir, out_dir, thread_num):
 
 
 if __name__ == '__main__':  
-    os.environ["CUDA_VISIBLE_DEVICES"] = '' # comment this line if you do not want to use GPU
+    os.environ["CUDA_VISIBLE_DEVICES"] = '' 
     main('./datasets/celebA/', './datasets/celebA/align_5p/', 30)
