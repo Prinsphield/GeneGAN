@@ -1,11 +1,11 @@
-# python3
+# python3 and python2
 import numpy as np
 import cv2
 import glob, os
 import tqdm
 from itertools import repeat
 from multiprocessing import Pool
-
+from functools import partial
 
 def align_2p(img, left_eye, right_eye):
     width = 256
@@ -128,7 +128,7 @@ def align_face_5p(img, landmarks):
     aligned_img = align_given_lm5p(img, np.array(landmarks).reshape((5, 2)), 256)  
     return aligned_img
 
-def work(i, data_dir, out_dir, landmarks):
+def work(data_dir, out_dir, landmarks, i):
     src_imname = os.path.join(data_dir, 'data', '{:06d}.jpg'.format(i+1))
     des_imname = os.path.join(out_dir, '{:06d}.jpg'.format(i+1))
     img = cv2.imread(src_imname)
@@ -146,8 +146,9 @@ def main(data_dir, out_dir, thread_num):
     im_list = glob.glob(os.path.join(data_dir, 'data/*.jpg'))
 
     pool = Pool(thread_num)
-    pool.starmap(work, zip(range(len(im_list)), repeat(data_dir), repeat(out_dir), repeat(landmarks)))
-    
+    # pool.starmap(work, zip(range(len(im_list)), repeat(data_dir), repeat(out_dir), repeat(landmarks)))
+    partial_work = partial(work, data_dir, out_dir, landmarks)
+    pool.map(partial_work, range(len(im_list)))
     pool.close()
     pool.join()
 
