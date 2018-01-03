@@ -59,7 +59,7 @@ the following directory tree structure.
 │       └── list_landmarks_celeba.txt
 ```
 
-1. Run `preprocess.py`. It will take several miniutes to preprocess all face images.
+1. Run `python preprocess.py`. It will take several miniutes to preprocess all face images.
 A new directory `datasets/celebA/align_5p` will be created.
 
 2. Run `python train.py -a Bangs -g 0` to train GeneGAN on the attribute `Bangs`. 
