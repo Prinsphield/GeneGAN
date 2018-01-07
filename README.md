@@ -4,7 +4,7 @@ By Shuchang Zhou, Taihong Xiao, Yi Yang, Dieqiao Feng, Qinyao He, Weiran He
 
 If you use this code for your research, please cite our paper:
 ```
-@article{DBLP:journals/corr/ZhouXYFHH17,
+@inproceedings{DBLP:conf/bmvc/ZhouXYFHH17,
   author    = {Shuchang Zhou and
                Taihong Xiao and
                Yi Yang and
@@ -12,8 +12,7 @@ If you use this code for your research, please cite our paper:
                Qinyao He and
                Weiran He},
   title     = {GeneGAN: Learning Object Transfiguration and Attribute Subspace from Unpaired Data},
-  journal   = {CoRR},
-  volume    = {abs/1705.24932},
+  booktitle = {Proceedings of the British Machine Vision Conference 2017, {BMVC} 2017, London, UK, September 4-7, 2017},
   year      = {2017},
   url       = {http://arxiv.org/abs/1705.04932},
   timestamp = {http://dblp.uni-trier.de/rec/bib/journals/corr/ZhouXYFHH17},
