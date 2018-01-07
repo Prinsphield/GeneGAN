@@ -12,7 +12,7 @@ If you use this code for your research, please cite our paper:
                Qinyao He and
                Weiran He},
   title     = {GeneGAN: Learning Object Transfiguration and Attribute Subspace from Unpaired Data},
-  booktitle = {Proceedings of the British Machine Vision Conference 2017, {BMVC} 2017, London, UK, September 4-7, 2017},
+  booktitle = {Proceedings of the British Machine Vision Conference (BMVC)},
   year      = {2017},
   url       = {http://arxiv.org/abs/1705.04932},
   timestamp = {http://dblp.uni-trier.de/rec/bib/journals/corr/ZhouXYFHH17},
