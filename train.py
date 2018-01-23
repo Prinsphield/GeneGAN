@@ -44,7 +44,7 @@ def run(config, dataset, model, gpu):
     g_lr_op = tf.summary.scalar('g_learning_rate', model.g_lr)
     d_lr_op = tf.summary.scalar('d_learning_rate', model.d_lr)
 
-    merged_op = tf.contrib.deprecated.merge_all_summaries()
+    merged_op = tf.summary.merge_all()
 
     # start training
     sess = tf.Session()
