@@ -114,7 +114,7 @@ def main():
     parser = argparse.ArgumentParser(description='test', formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument(
         '-a', '--attribute', 
-        default='Smiling',
+        default='Eyeglasses',
         type=str,
         help='Specify attribute name for training. \ndefault: %(default)s. \nAll attributes can be found in list_attr_celeba.txt'
     )
