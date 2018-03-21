@@ -15,7 +15,7 @@ class Config:
          
     @property
     def data_dir(self):
-        data_dir = os.path.join(self.base_dir, './datasets/celebA/')
+        data_dir = os.path.join(self.base_dir, '../datasets/celebA/')
         if not os.path.exists(data_dir):
             raise ValueError('Please specify a data dir.')
         return data_dir
