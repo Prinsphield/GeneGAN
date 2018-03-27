@@ -23,7 +23,7 @@ If you use this code for your research, please cite our paper:
 ### Introduction
 
 This is the official source code for the paper [GeneGAN: Learning Object Transfiguration 
-and Attribute Subspace from Unpaired Data](https://arxiv.org/abs/1705.04932). All the experiments are initially done in 
+and Attribute Subspace from Unpaired Data](https://arxiv.org/abs/1705.04932v1). All the experiments are initially done in 
 our proprietary deep learning framework. For convenience, we reproduce the results using TensorFlow.
 
 <div align="center">
