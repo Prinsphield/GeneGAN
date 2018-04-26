@@ -20,6 +20,8 @@ If you use this code for your research, please cite our paper:
 }
 ```
 
+We have two following papers, [DNA-GAN](https://github.com/Prinsphield/DNA-GAN) and [ELEGANT](https://github.com/Prinsphield/ELEGANT), that generalize the method into multiple attributes case. It is worth mentioning that [ELEGANT](https://github.com/Prinsphield/ELEGANT) can transfer multiple face attributes on high resolution images. Please pay attention to our new methods!
+
 ### Introduction
 
 This is the official source code for the paper [GeneGAN: Learning Object Transfiguration 
@@ -33,7 +35,8 @@ our proprietary deep learning framework. For convenience, we reproduce the resul
 
 GeneGAN is a deterministic conditional generative model that can learn to disentangle the object
 features from other factors in feature space from weak supervised 0/1 labeling of training data.
-It allows fine-grained control of generated images on a certain attribute in a continous way.
+It allows fine-grained control of generated images on one certain attribute in a continous way.
+
 
 ### Requirement
 
